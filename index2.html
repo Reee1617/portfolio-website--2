@@ -5,122 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
 
-        
+        <style></style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-<style>
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background-color: #f4f6f8;
-    color: #333;
-}
-
-header {
-    background-color: #4f46e5;
-    color: white;
-    padding: 30px;
-    text-align: center;
-}
-
-nav {
-    background-color: #1f2937;
-    text-align: center;
-    padding: 10px;
-}
-
-nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-.container {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 20px;
-}
-
-.projects-grid {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.project-card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    flex: 1;
-    min-width: 250px;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    transition: 0.3s;
-}
-
-.project-card a {
-    color: #4f46e5;
-    text-decoration: none;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-input, textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #4f46e5;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #3730a3;
-}
-
-.delete-btn {
-    margin-left: 10px;
-    background-color: red;
-    padding: 4px 6px;
-    font-size: 12px;
-    border-radius: 4px;
-}
-
-footer {
-    background-color: #1f2937;
-    color: white;
-    text-align: center;
-    padding: 15px;
-}
-
-@media (max-width: 600px) {
-    .projects-grid {
-        flex-direction: column;
-    }
-}
 </style>
+
 
 </head>
 <body>
@@ -202,56 +90,8 @@ footer {
     <a href="https://github.com/Reee1617" target="_blank">GitHub</a>
     <p id="dateTime"></p>
 </footer>
-   <script>
-
-// Handle clicking the "Add" button to add a new hobby benefit
-var addBenefitButton = document.getElementById("addBenefitBtn");
-var benefitInputField = document.getElementById("benefitInput");
-var hobbyListElement = document.getElementById("hobbyList");
-
-addBenefitButton.onclick = function(){
-    if(benefitInputField.value !== ""){
-        var listItem = document.createElement("li");
-        listItem.innerText = benefitInputField.value;
-
-        var deleteButton = document.createElement("button");
-        deleteButton.innerText = "Delete";
-        deleteButton.className = "delete-btn";
-
-        deleteButton.onclick = function(){
-            listItem.remove();
-        };
-
-        listItem.appendChild(deleteButton);
-        hobbyListElement.appendChild(listItem);
-        benefitInputField.value = "";
-    }
-};
-
-// Allow deleting any benefits that already have a delete button
-var deleteButtons = document.getElementsByClassName("delete-btn");
-for(var i = 0; i < deleteButtons.length; i++){
-    deleteButtons[i].onclick = function(){
-        this.parentElement.remove();
-    };
-}
-
-// Show an alert when the contact form is submitted (and stop page reload)
-document.getElementById("contactForm").onsubmit = function(e){
-    e.preventDefault();
-    alert("Form submitted successfully!");
-};
-
-// Show the current date and time in the footer and update it every second
-function showDateTime(){
-    var now = new Date();
-    document.getElementById("dateTime").innerText = now.toLocaleString();
-}
-
-showDateTime();
-setInterval(showDateTime, 1000);
-
-</script>
+   <script src="script.js"></script>
+   <link rel ="stylesheet" href ="style.css">
 
 </body>
 </html>
