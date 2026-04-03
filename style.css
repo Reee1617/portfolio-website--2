@@ -1,4 +1,4 @@
- * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -30,8 +30,10 @@ nav a {
     font-weight: 500;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus {
     text-decoration: underline;
+    outline: 2px solid #fff;
 }
 
 .container {
@@ -52,16 +54,11 @@ nav a:hover {
     border-radius: 8px;
     flex: 1;
     min-width: 250px;
+    transition: 0.3s;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    transition: 0.3s;
-}
-
-.project-card a {
-    color: #4f46e5;
-    text-decoration: none;
 }
 
 form {
@@ -74,6 +71,12 @@ input, textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+    outline: 2px solid #4f46e5;
 }
 
 button {

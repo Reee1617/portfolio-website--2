@@ -1,48 +1,51 @@
-// Handle clicking the "Add" button to add a new hobby benefit
-var addBenefitButton = document.getElementById("addBenefitBtn");
-var benefitInputField = document.getElementById("benefitInput");
-var hobbyListElement = document.getElementById("hobbyList");
+// Select required elements
+const addBenefitBtn = document.getElementById("addBenefitBtn");
+const benefitInput = document.getElementById("benefitInput");
+const hobbyList = document.getElementById("hobbyList");
 
-addBenefitButton.onclick = function(){
-    if(benefitInputField.value !== ""){
-        var listItem = document.createElement("li");
-        listItem.innerText = benefitInputField.value;
+// Add new benefit to the list
+addBenefitBtn.onclick = function () {
+    if (benefitInput.value !== "") {
+        const listItem = document.createElement("li");
+        listItem.textContent = benefitInput.value;
 
-        var deleteButton = document.createElement("button");
-        deleteButton.innerText = "Delete";
-        deleteButton.className = "delete-btn";
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.className = "delete-btn";
 
-        deleteButton.onclick = function(){
+        // Remove benefit on click
+        deleteBtn.onclick = function () {
             listItem.remove();
         };
 
-        listItem.appendChild(deleteButton);
-        hobbyListElement.appendChild(listItem);
-        benefitInputField.value = "";
+        listItem.appendChild(deleteBtn);
+        hobbyList.appendChild(listItem);
+        benefitInput.value = "";
     }
 };
 
-// Allow deleting any benefits that already have a delete button
-var deleteButtons = document.getElementsByClassName("delete-btn");
-for(var i = 0; i < deleteButtons.length; i++){
-    deleteButtons[i].onclick = function(){
-        this.parentElement.remove();
-    };
-}
-
-// Show an alert when the contact form is submitted (and stop page reload)
-document.getElementById("contactForm").onsubmit = function(e){
+// Handle contact form submission
+document.getElementById("contactForm").onsubmit = function (e) {
     e.preventDefault();
     alert("Form submitted successfully!");
 };
 
-// Show the current date and time in the footer and update it every second
-function showDateTime(){
-    var now = new Date();
-    document.getElementById("dateTime").innerText = now.toLocaleString();
+// Format date as: Day, dd Month yyyy, HH:mm:ss
+function formatDateTime() {
+    const now = new Date();
+    const options = {
+        weekday: 'long',
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+    };
+
+    const date = now.toLocaleDateString('en-GB', options);
+    const time = now.toLocaleTimeString('en-GB');
+
+    document.getElementById("dateTime").innerText = `${date}, ${time}`;
 }
 
-showDateTime();
-setInterval(showDateTime, 1000);
-
-</script>
+// Update date & time every second
+formatDateTime();
+setInterval(formatDateTime, 1000);
