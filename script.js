@@ -46,6 +46,11 @@ function formatDateTime() {
     document.getElementById("dateTime").innerText = `${date}, ${time}`;
 }
 
+<<<<<<< Updated upstream
 // Update date & time every second
 formatDateTime();
 setInterval(formatDateTime, 1000);
+=======
+showDateTime();
+setInterval(showDateTime, 1000);
+>>>>>>> Stashed changes
